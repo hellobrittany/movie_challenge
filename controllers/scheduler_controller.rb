@@ -1,5 +1,6 @@
 require_relative '../config/ruby_manifest.rb'
 
+
 class SchedulerController
   attr_reader :load_view, :runner_view, :movie_loader, :today
   attr_accessor :finished
@@ -24,9 +25,18 @@ class SchedulerController
 
     until finished
       # logic for your program
-
-      runner_view.ask_if_user_is_finished
       user_choice = gets.chomp
+      if user_choice == 'all'
+        file = File.read('movie_list.json')
+        collection = JSON.parse(file)
+        p collection[0][:title]
+        
+      end 
+        runner_view.ask_if_user_is_finished
+        user_choice = gets.chomp
+        exit_program 
+      
+      
 
       if user_choice == 'end'
         exit_program 
@@ -37,5 +47,9 @@ class SchedulerController
   def exit_program
     self.finished = true
     runner_view.good_bye_message
+  end
+
+  def method_name
+    
   end
 end

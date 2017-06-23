@@ -28,5 +28,7 @@ class MovieLoader
     File.open("movie_list.json","w") do |f|
       f.write(collection.to_json)
     end
+
+    
   end
 end

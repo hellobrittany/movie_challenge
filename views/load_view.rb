@@ -5,6 +5,10 @@ class LoadView
     puts "Type 'yes' or 'no'"
   end
 
+  def user_choice
+    
+  end
+
   def finished
     puts ""
     puts camera_image
